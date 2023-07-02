@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+</head>
+<body>
+    {% if messages %}
+  {% for message in messages %}
+  {% if message.tags == "error"%}
+  <div class="alert alert-danger col-md-7 inputGroupContainer text-center" style="float:none; margin:auto;" role="alert">
+  {{ message }}
+  </div>
+  {% else %}
+  <div class="alert alert-success col-md-7 inputGroupContainer text-center" style="float:none; margin:auto;" role="alert">
+  {{ message }}
+  </div>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  <form action="/verify_otp" method="POST">
+    {% csrf_token %}
+    <input type="email" value="{{email}}" name="email" hidden><br><br>
+    
+    <label for="">Enter OTP</label>
+    <input type="number" name="otp"><br><br>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

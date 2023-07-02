@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %} ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-wrapper">
+        <div class="form-content">
+            <form action="" method="POST"> 
+                {% csrf_token %}  
+                <h4 class="text-center">Sign Up Form</h4>
+                <div class="f-input">
+                    <label for="">First Name </label>
+                    <input type="text" name="first_name">
+                </div>
+                <div class="f-input">
+                    <label for="">Last Name </label>
+                    <input type="text" name="last_name">
+                </div>
+                <div class="f-input">
+                    <label for="">Email  </label>
+                    <input type="email" name="email">
+                </div>
+                <div class="f-input">
+                    <label for="">Gender  </label>
+                    <input type="text" name="gender">
+                </div>
+                <div class="f-input">
+                    <label for="">Phone  </label>
+                    <input type="text" name="phone_no">
+                </div>
+                <div class="btn-submt text-center">
+                    <button type="submit" class="btn me-2">Submit</button>
+                    <button href="/login" class="btn">login</button>
+                </div>
+                
+                
+            </form>
+           
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

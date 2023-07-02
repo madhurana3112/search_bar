@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class="form-wrapper">
+        <div class="form-content">
+            <form action="/login" method="POST"> 
+                {% csrf_token %}  
+                <div class="f-input">
+                    <label for="">Email  </label>
+                    <input type="email" name="email">
+                </div>
+                <div class="btn-submt text-center">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

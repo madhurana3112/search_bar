@@ -15,8 +15,28 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('',include("authentication_app.urls")),
+    path('api/',include("authentication_api.urls")),
+    
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
+urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )
+
+
+# from django.db import connection
+
+# # Path to your SQL file
+# sql_file_path = '/home/madhurana/Documents/search bar/search_bar/world-4.sql'
+
+# # Read the SQL file
+# with open(sql_file_path, 'r') as sql_file:
+#     sql_statements = sql_file.read()
+
+# # Execute the SQL statements
+# with connection.cursor() as cursor:
+#     cursor.execute(sql_statements)

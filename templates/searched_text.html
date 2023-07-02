@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details of Search</title>
+</head>
+<body>
+    <a href="logout/">Logout</a>
+
+    {% for category, items in description.items %}
+        {% if category == "countries" %}
+            <h2>Countries:</h2>
+            {% for country in items %}
+                <a href="/country_details/{{ country.code }}">{{ country.name }}</a><br>
+            {% endfor %}
+        {% elif category == "cities" %}
+            <h2>Cities:</h2>
+            {% for city in items %}
+                {{ city.name }} <br>
+            {% endfor %}
+        {% elif category == "languages" %}
+            <h2>Languages:</h2>
+            {% for language in items %}
+                {{ language.Language }}<br>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

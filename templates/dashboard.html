@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#search-input').on('input', function() {
+                var query = $(this).val().trim();
+                if (query === '') {
+                    $('#search-results').empty();
+                    return;
+                }
+                $.ajax({
+                    url: '/search/',
+                    data: {q: query},
+                    success: function(data) {
+                        var results = '';
+                        for (var i = 0; i < data.length; i++) {
+                            results += '<li>' + data[i].name + '</li>';
+                        }
+                        $('#search-results').html(results);
+                    }
+                });
+            });
+        });
+        
+        
+    </script>
+</head>
+<body>
+
+    <form action="/searched_text" method="POST">
+        {% csrf_token %}
+    <input type="text" id="search-input" name="search" placeholder="Search...">
+    <ul id="search-results"></ul><br><br>
+    <button type="submit">Search</button>
+</form>
+<br><a href="logout/">Logout</a>
+
+</body>
+</html>
